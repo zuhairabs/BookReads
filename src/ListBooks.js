@@ -31,8 +31,8 @@ class ListBooks extends Component {
         </div>
         <div className="list-books-content">
           <div>
-            {this.state.shelves.map((s) => (
-              <BookShelf books={this.filterBooksByShelf(s)} shelf={s}/>
+            {this.state.shelves.map((s,index) => (
+              <BookShelf key={index} books={this.filterBooksByShelf(s)} shelf={s}/>
             ))}
           </div>
         </div>
