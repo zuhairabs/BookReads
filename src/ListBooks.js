@@ -9,23 +9,16 @@ class ListBooks extends Component {
 
 
   state = {
-    books: [],
     shelves: ['wantToRead','currentlyReading','read']
   }
 
-  updateGlobalShelf = (book,shelf) => {
-    this.setState((prevState) => {
-      prevState.books.filter((b)=>b.id===book.id)[0].shelf = shelf
-    })
-  }
-
   filterBooksByShelf = (shelf) => {
-    return this.state.books.filter((book) => book.shelf === shelf)
+    return this.props.currentBooks.filter((book) => book.shelf === shelf)
   }
 
   componentDidMount() {
     BooksAPI.getAll().then((books) => {
-      this.setState({books})
+      this.props.setBooks(books)
     })
   }
 
@@ -42,7 +35,7 @@ class ListBooks extends Component {
                 key={index}
                 books={this.filterBooksByShelf(s)}
                 shelf={s}
-                updateShelf = {this.updateGlobalShelf}/>
+                updateGlobalShelf={this.props.updateGlobalShelf}/>
             ))}
           </div>
         </div>

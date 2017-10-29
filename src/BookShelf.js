@@ -28,7 +28,7 @@ class BookShelf extends Component {
               <li key={b.id}>
                 <Book
                   details={b}
-                  updateGlobalShelf={this.props.updateGlobalShelf}/>
+                  updateShelf={this.props.updateGlobalShelf}/>
               </li>
             ))}
           </ol>
