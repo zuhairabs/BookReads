@@ -13,6 +13,7 @@ class SearchBooks extends Component {
   }
 
   updateQuery = (query) => {
+
     this.setState({query: query})
 
     if (query==='') {
@@ -20,16 +21,15 @@ class SearchBooks extends Component {
       return
     }
 
-    console.log(this.state.query)
-
     BooksAPI.search(query,20).then((results) => {
-      if (results) {
+      if (this.state.query===query && results) {
         this.setState({searchResults: results});
       } else {
         this.setState({searchResults: []})
       }
     })
   }
+
 
   render() {
     const { query } = this.state
