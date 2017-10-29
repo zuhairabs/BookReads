@@ -15,7 +15,7 @@ class Book extends Component {
               width: 128,
               height: 193,
               backgroundImage:
-                `url("${details.imageLinks.thumbnail}")`
+                `url("${ details.imageLinks ? details.imageLinks.thumbnail: ''}")`
             }}
           />
           <div className="book-shelf-changer">
@@ -32,7 +32,7 @@ class Book extends Component {
         </div>
         <div className="book-title">{details.title}</div>
         <div className="book-authors">
-          {details.authors.map((a,index) => (
+          { details.authors && details.authors.map((a,index) => (
             <div key={index}>{a}</div>
           ))}
         </div>

@@ -14,11 +14,22 @@ class SearchBooks extends Component {
 
   updateQuery = (query) => {
     this.setState({query: query})
-    BooksAPI.search(this.state.query,20).then((results) => {
-      this.setState({searchResults: results});
+
+    if (query==='') {
+      this.setState({searchResults: []})
+      return
+    }
+
+    console.log(this.state.query)
+
+    BooksAPI.search(query,20).then((results) => {
+      if (results) {
+        this.setState({searchResults: results});
+      } else {
+        this.setState({searchResults: []})
+      }
     })
   }
-
 
   render() {
     const { query } = this.state
@@ -51,7 +62,7 @@ class SearchBooks extends Component {
         <div className="search-books-results">
           <div>{query}</div>
           <ol className="books-grid">
-            {this.state.searchResults.map((b) => (
+            {this.state.searchResults.constructor===Array && this.state.searchResults.map((b) => (
               <li key={b.id}>
                 <Book details={b} />
               </li>
