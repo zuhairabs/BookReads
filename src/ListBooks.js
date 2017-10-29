@@ -13,6 +13,12 @@ class ListBooks extends Component {
     shelves: ['wantToRead','currentlyReading','read']
   }
 
+  updateGlobalShelf = (book,shelf) => {
+    this.setState((prevState) => {
+      prevState.books.filter((b)=>b.id===book.id)[0].shelf = shelf
+    })
+  }
+
   filterBooksByShelf = (shelf) => {
     return this.state.books.filter((book) => book.shelf === shelf)
   }
@@ -32,7 +38,11 @@ class ListBooks extends Component {
         <div className="list-books-content">
           <div>
             {this.state.shelves.map((s,index) => (
-              <BookShelf key={index} books={this.filterBooksByShelf(s)} shelf={s}/>
+              <BookShelf
+                key={index}
+                books={this.filterBooksByShelf(s)}
+                shelf={s}
+                updateShelf = {this.updateGlobalShelf}/>
             ))}
           </div>
         </div>

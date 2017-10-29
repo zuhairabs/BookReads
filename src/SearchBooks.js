@@ -33,6 +33,10 @@ class SearchBooks extends Component {
     })
   }
 
+  updateSearchShelf = () => {
+    console.log("ok");
+  }
+
 
   render() {
 
@@ -66,7 +70,10 @@ class SearchBooks extends Component {
           <ol className="books-grid">
             {this.state.searchResults.constructor===Array && this.state.searchResults.map((b) => (
               <li key={b.id}>
-                <Book details={b} />
+                <Book
+                  details={b}
+                  updateShelf={this.updateSearchShelf}
+                  />
               </li>
             ))}
           </ol>

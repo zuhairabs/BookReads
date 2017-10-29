@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
+import * as BooksAPI from './BooksAPI.js'
 
 class Book extends Component {
+
+
+  updateShelf = (newshelf) => {
+    this.props.updateShelf(this.props.details,newshelf)
+    BooksAPI.update({id: this.props.details.id},newshelf).then((response) => {
+      console.log(response);
+    })
+  }
 
 
   render() {
@@ -19,7 +28,7 @@ class Book extends Component {
             }}
           />
           <div className="book-shelf-changer">
-            <select defaultValue={details.shelf}>
+            <select defaultValue={details.shelf} onChange={(event) => this.updateShelf(event.target.value)}>
               <option value="none" disabled>
                 Move to...
               </option>
