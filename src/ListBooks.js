@@ -4,8 +4,6 @@ import PropTypes from 'prop-types'
 
 import BookShelf from './BookShelf'
 
-import * as BooksAPI from './BooksAPI.js'
-
 class ListBooks extends Component {
 
   static PropTypes = {
@@ -23,10 +21,8 @@ class ListBooks extends Component {
     return this.props.currentBooks.filter((book) => book.shelf === shelf)
   }
 
-  componentDidMount() {
-    BooksAPI.getAll().then((books) => {
-      this.props.setBooks(books)
-    })
+  componentWillMount() {
+    this.props.setBooks()
   }
 
   render() {

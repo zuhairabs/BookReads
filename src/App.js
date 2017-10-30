@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-// import * as BooksAPI from './BooksAPI'
+import * as BooksAPI from './BooksAPI'
 import './App.css'
 
 
@@ -19,8 +19,10 @@ class BooksApp extends React.Component {
       })
     }
 
-  getBooks = (books) => {
-    this.setState({books})
+  getBooks = () => {
+    BooksAPI.getAll().then((books) => {
+      this.setState({books})
+    })
   }
 
   render() {

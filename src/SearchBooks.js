@@ -50,12 +50,9 @@ class SearchBooks extends Component {
     }
   }
 
-  componentDidMount() {
-    BooksAPI.getAll().then((books) => {
-      this.props.setBooks(books)
-    })
+  componentWillMount() {
+    this.props.setBooks()
   }
-
 
   render() {
 
