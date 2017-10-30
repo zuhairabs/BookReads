@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types'
 
 import BookShelf from './BookShelf'
 
@@ -7,9 +8,15 @@ import * as BooksAPI from './BooksAPI.js'
 
 class ListBooks extends Component {
 
+  static PropTypes = {
+    currentBooks: PropTypes.array.isRequired,
+    setBooks: PropTypes.func.isRequired,
+    updateGlobalShelf: PropTypes.func.isRequired
+  }
+
 
   state = {
-    shelves: ['wantToRead','currentlyReading','read']
+    shelves: ['currentlyReading','wantToRead','read']
   }
 
   filterBooksByShelf = (shelf) => {

@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import * as BooksAPI from './BooksAPI.js'
+import PropTypes from 'prop-types'
 
 class Book extends Component {
 
+  static propTypes = {
+    details: PropTypes.object.isRequired,
+    currentShelf: PropTypes.string
+  }
 
-  updateShelf = (newshelf) => {
+
+  updateBookShelf = (newshelf) => {
     this.props.updateShelf(this.props.details,newshelf)
     BooksAPI.update({id: this.props.details.id},newshelf).then((response) => {
       console.log(response);
@@ -28,7 +34,7 @@ class Book extends Component {
             }}
           />
           <div className="book-shelf-changer">
-            <select defaultValue={this.props.currentShelf || details.shelf} onChange={(event) => this.updateShelf(event.target.value)}>
+            <select defaultValue={this.props.currentShelf || details.shelf} onChange={(event) => this.updateBookShelf(event.target.value)}>
               <option value="none" disabled>
                 Move to...
               </option>

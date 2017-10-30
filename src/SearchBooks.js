@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Debounce } from 'react-throttle';
+import PropTypes from 'prop-types'
 
 
 import Book from './Book.js'
@@ -8,6 +9,10 @@ import Book from './Book.js'
 import * as BooksAPI from './BooksAPI.js'
 
 class SearchBooks extends Component {
+  static propTypes = {
+    currentBooks: PropTypes.array.isRequired,
+    setBooks: PropTypes.func.isRequired
+  }
 
   state = {
     searchResults: [],
