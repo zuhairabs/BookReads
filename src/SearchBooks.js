@@ -41,7 +41,7 @@ class SearchBooks extends Component {
     return this.props.updateGlobalShelf
   }
 
-  getBookSelf = (bookid) => {
+  getBookShelf = (bookid) => {
     if (this.props.currentBooks.filter((b) => b.id === bookid).length > 0) {
       return this.props.currentBooks.filter((b) => b.id === bookid)[0].shelf
     } else {
@@ -85,7 +85,7 @@ class SearchBooks extends Component {
                 <Book
                   details={b}
                   updateShelf={this.props.updateGlobalShelf}
-                  currentShelf={this.getBookSelf(b.id)}
+                  currentShelf={this.getBookShelf(b.id)}
                   />
               </li>
             ))}
