@@ -37,6 +37,20 @@ class SearchBooks extends Component {
     console.log("ok");
   }
 
+  getBookSelf = (bookid) => {
+    if (this.props.currentBooks.filter((b) => b.id === bookid).length > 0) {
+      return this.props.currentBooks.filter((b) => b.id === bookid)[0].shelf
+    } else {
+      return "none"
+    }
+  }
+
+  componentDidMount() {
+    BooksAPI.getAll().then((books) => {
+      this.props.setBooks(books)
+    })
+  }
+
 
   render() {
 
@@ -73,6 +87,7 @@ class SearchBooks extends Component {
                 <Book
                   details={b}
                   updateShelf={this.updateSearchShelf}
+                  currentShelf={this.getBookSelf(b.id)}
                   />
               </li>
             ))}
