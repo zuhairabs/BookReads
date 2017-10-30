@@ -25,12 +25,6 @@ class BooksApp extends React.Component {
       }));
     }
 
-    addNewBook = (book,shelf) => {
-      book.shelf = shelf
-      this.setState((prevState) => {
-        prevState.books.push(book)
-      })
-    }
 
     componentDidMount() {
       console.log('getBooks')
@@ -54,7 +48,7 @@ class BooksApp extends React.Component {
         <Route path='/search' render={() => (
             <SearchBooks
               currentBooks={books}
-              updateGlobalShelf={this.addNewBook}
+              updateGlobalShelf={this.updateGlobalShelf}
               />
           )}/>
       </div>
