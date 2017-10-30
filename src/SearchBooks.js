@@ -10,8 +10,7 @@ import * as BooksAPI from './BooksAPI.js'
 
 class SearchBooks extends Component {
   static propTypes = {
-    currentBooks: PropTypes.array.isRequired,
-    setBooks: PropTypes.func.isRequired
+    currentBooks: PropTypes.array.isRequired
   }
 
   state = {
@@ -39,7 +38,7 @@ class SearchBooks extends Component {
   }
 
   updateSearchShelf = () => {
-    console.log("ok");
+    return this.props.updateGlobalShelf
   }
 
   getBookSelf = (bookid) => {
@@ -50,9 +49,6 @@ class SearchBooks extends Component {
     }
   }
 
-  componentWillMount() {
-    this.props.setBooks()
-  }
 
   render() {
 
@@ -88,7 +84,7 @@ class SearchBooks extends Component {
               <li key={b.id}>
                 <Book
                   details={b}
-                  updateShelf={this.updateSearchShelf}
+                  updateShelf={this.props.updateGlobalShelf}
                   currentShelf={this.getBookSelf(b.id)}
                   />
               </li>

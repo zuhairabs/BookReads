@@ -8,7 +8,6 @@ class ListBooks extends Component {
 
   static PropTypes = {
     currentBooks: PropTypes.array.isRequired,
-    setBooks: PropTypes.func.isRequired,
     updateGlobalShelf: PropTypes.func.isRequired
   }
 
@@ -19,10 +18,6 @@ class ListBooks extends Component {
 
   filterBooksByShelf = (shelf) => {
     return this.props.currentBooks.filter((book) => book.shelf === shelf)
-  }
-
-  componentWillMount() {
-    this.props.setBooks()
   }
 
   render() {

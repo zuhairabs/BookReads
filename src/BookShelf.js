@@ -9,21 +9,17 @@ class BookShelf extends Component {
     updateGlobalShelf: PropTypes.func.isRequired
   }
 
-  state = {
-    shelf: this.props.shelf
-  }
-
   render() {
     return (
       <div className="bookshelf">
         <h2 className="bookshelf-title">
-          {this.state.shelf==="currentlyReading" && (
+          {this.props.shelf==="currentlyReading" && (
             'Currently Reading'
           )}
-          {this.state.shelf==="wantToRead" && (
+          {this.props.shelf==="wantToRead" && (
             'Want To Read'
           )}
-          {this.state.shelf==="read" && (
+          {this.props.shelf==="read" && (
             'Read'
           )}
         </h2>

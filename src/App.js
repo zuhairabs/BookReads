@@ -14,16 +14,31 @@ class BooksApp extends React.Component {
   }
 
   updateGlobalShelf = (book,shelf) => {
+    console.log('updateGlobalShelf')
+
+      this.setState(prevState => ({
+        books: prevState.books.filter(b => b.id !== book.id)
+      }));
+      book.shelf = shelf;
+      this.setState(prevState => ({
+        books: prevState.books.concat([book])
+      }));
+    }
+
+    addNewBook = (book,shelf) => {
+      book.shelf = shelf
       this.setState((prevState) => {
-        prevState.books.filter((b)=>b.id===book.id)[0].shelf = shelf
+        prevState.books.push(book)
       })
     }
 
-  getBooks = () => {
-    BooksAPI.getAll().then((books) => {
-      this.setState({books})
-    })
-  }
+    componentDidMount() {
+      console.log('getBooks')
+      BooksAPI.getAll().then((books) => {
+        this.setState({books})
+      })
+    }
+
 
   render() {
     const {books} = this.state
@@ -34,12 +49,13 @@ class BooksApp extends React.Component {
             <ListBooks
               currentBooks={books}
               updateGlobalShelf={this.updateGlobalShelf}
-              setBooks={this.getBooks}/>
+              />
         )}/>
         <Route path='/search' render={() => (
             <SearchBooks
               currentBooks={books}
-              setBooks={this.getBooks}/>
+              updateGlobalShelf={this.addNewBook}
+              />
           )}/>
       </div>
     )
