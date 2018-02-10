@@ -1,8 +1,10 @@
-# MyReads Project
+# MyReads
 
-Project submission for the first course, React Fundamentals, in Udacity's React Nanodegree programme.
+Project for the React Fundamentals course in Udacity's React Nanodegree.
 
-The MyReads app allows its users to organise their collection of books into three shelves: _Currently Reading_,_Read_, and _Want To Read_. It also allows a user to search for more books, and add them to their collection, in the shelf they want.
+The MyReads app allows its users to organise their collection of books into three shelves: _Currently Reading_,_Read_, and _Want To Read_. 
+
+It also allows a user to search for more books, and add them to their collection, in the shelf they want. A list of available search terms can be found [here](SEARCH_TERMS.md).
 
 Happy reading. :)
 
