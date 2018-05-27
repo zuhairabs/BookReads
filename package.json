@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "hoek": "^5.0.3",
     "marked": "0.3.9",
     "prop-types": "^15.6.1",
     "react": "^15.5.4",
