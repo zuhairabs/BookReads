@@ -9,14 +9,6 @@ A list of available search terms can be found [here](SEARCH_TERMS.md).
 
 Happy reading. :)
 
-## Screenshots
-
-#### Homepage
-![homepage](/screenshots/home_page.png)
-
-#### Search
-![search](/screenshots/search_page.png)
-
 ## [Demo](http://sajal-myreads.herokuapp.com/)
 
 ## How to install and run locally
@@ -27,3 +19,11 @@ Clone/fork the repo. Thenm from the project directory in a terminal, run the fol
 - npm start
 
 Browse to http://localhost:3000 to view the app.
+
+## Screenshots
+
+#### Homepage
+![homepage](/screenshots/home_page.png)
+
+#### Search
+![search](/screenshots/search_page.png)
