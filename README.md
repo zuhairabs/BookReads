@@ -9,6 +9,14 @@ A list of available search terms can be found [here](SEARCH_TERMS.md).
 
 Happy reading. :)
 
+## Screenshots
+
+#### Homepage
+![homepage](/screenshots/home_page.png)
+
+#### Search
+![search](/screenshots/search_page.png)
+
 ## [Demo](http://sajal-myreads.herokuapp.com/)
 
 ## How to install and run locally
